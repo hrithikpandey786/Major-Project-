@@ -22,7 +22,7 @@ model Department{
 model PhoneNumber{
   id String @id @default(auto()) @map("_id") @db.ObjectId
   departmentId String @db.ObjectId
-  number Int
+  number Int @unique
   department Department @relation(fields:[departmentId], references: [id])
 }
 
