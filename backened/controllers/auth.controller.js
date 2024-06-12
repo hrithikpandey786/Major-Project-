@@ -1,25 +1,11 @@
 const prisma = require("../lib/prisma.js");
 
 const register = async (req, res)=>{
-    
-    
     try{
 
-        const newAdmin = await prisma.admin.create({
-            data:{
-                name: req.body.name,
-                email: req.body.email,
-                phoneNumber: req.body.phonenumber,
-                department: req.body.department,
-                position: req.body.position,
-                password: req.body.password
-            }
-        });
-
-        res.status(200).json(newAdmin);
     } catch(err){
         console.log(err);
-        res.status(500).json({message: "Failed to register"})
+        res.status(500).json({message: "Failed to register"});
     }
 }
 
