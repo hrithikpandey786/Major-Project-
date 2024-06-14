@@ -118,15 +118,67 @@ app.listen(8800, ()=>{
 // })
 
 
-// app.get("/api/getDepartment",async (req, res)=>{
+// app.get("/api/getStudent",async (req, res)=>{
     
+    
+//         try{
+//             const newDepartment = await prisma.enrolledStudent.findMany();
+    
+//             res.status(200).json(newDepartment);
+//         } catch(err){
+//             console.log(err);
+//             res.status(500).json({message: "Failed to add faculty"})
+//         }
+//     })
+
+
+// app.post("/api/addStudent", async (req, res)=>{
+//     const {enrolmentNo, name, dob} = req.body
     
 //     try{
-//         const newDepartment = await prisma.department.findMany();
+//         const newStu = await prisma.enrolledStudent.create({
+//                         data:{
+//                             enrolmentNo, 
+//                             name, 
+//                             dob: new Date(dob)
+//                         }
+//                 })
 
-//         res.status(200).json(newDepartment);
+//         res.status(200).json(newStu);
 //     } catch(err){
 //         console.log(err);
-//         res.status(500).json({message: "Failed to add faculty"})
+//         res.status(500).json({message: "Failed to add department"});
+//     }
+// })
+
+
+// app.put("/api/updateEnrolledStudent/:id", async (req, res)=>{
+//     const dob = req.body.dob;
+//     const enrolmentNo = req.params.id;
+//     // console.log(dob);
+    
+//     try{
+//         const newData = await prisma.enrolledStudent.findUnique({
+//             where:{
+//                 enrolmentNo: parseInt(enrolmentNo)
+//             }
+//         })
+
+//         const {email, ...data} = newData.data;
+//         // console.log(newData)
+//         newData = await prisma.enrolledStudent.update({
+//             where:{
+//                 enrolmentNo: parseInt(enrolmentNo)
+//             },
+//             data:{
+//                 ...data,
+//                 dob: new Date(dob)
+//             }
+//         })
+
+//         res.status(200).json(newData)
+//     } catch(err){
+//         console.log(err);
+//         res.status(500).json({message: "Failed to update the student data"});
 //     }
 // })

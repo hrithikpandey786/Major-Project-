@@ -26,6 +26,30 @@ model Course{
   name String
 }
 
+model EnrolledStudent{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  enrolmentNo Int @unique
+  name String
+  dob DateTime @db.Date 
+}
+
+model Student{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  enrolmentNo Int @unique
+  name String
+  dob DateTime @db.Date
+  email String @unique
+  phoneNumber Int @unique
+  department String
+  course String
+  admissionYear Int
+  resultDate DateTime @db.Date
+  status String @default("Pending")
+  address String
+  pincode Int
+  password String
+}
+
 
 
 
